@@ -4,13 +4,22 @@ document.querySelectorAll('.card-produk').forEach(card =>{
     const plus = card.querySelector('.plus');
 });
 
-minus,addEventListener('click', () =>{
-    const harga = card.querySelector('price');
+minus.addEventListener('click', () => {
+    const harga = card.querySelector('.price');
     const nominalHarga = harga.textContent.match(/\d+/)[0];
 
     let value = parseInt(input.value);
-    if (value> 1) (input.value = value - 1);
+    if (value> 1) {input.value = value - 1};
 
-    harga.innerHTML = `$$((nominalHarga / value)* input.value)`
+    harga.innerHTML = `$${(nominalHarga / value)* input.value}`
 });
 
+plus.addEventListener('click', () => {
+    const harga = card.querySelector('.price');
+    const nominalHarga = harga.textContent.match(/\d+/)[0];
+
+    let value = parseInt(input.value);
+    input.value = value + 1;
+
+    harga.innerHTML = `$${(nominalHarga / value)* input.value}`
+});
